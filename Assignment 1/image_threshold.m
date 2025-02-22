@@ -2,15 +2,15 @@ function image_threshold(inputImage)
 
 [grayLevelCounts, minGray, maxGray, image] = custom_histogram(inputImage);
 
-fprintf('Min: %d\n', minGray);
-fprintf('Max: %d\n', maxGray);
+%fprintf('Min: %d\n', minGray);
+%fprintf('Max: %d\n', maxGray);
 
 % get the midpoint of the min and max graylevel
 midpoint = (minGray + maxGray)/2;
 fprintf('Midpoint: %d\n', midpoint);
 
 % prob need to change this to what the initial should be
-t0 = 15;
+t0 = 1;
 
 t = midpoint;
 
@@ -21,12 +21,9 @@ grayLevels = 0:255;
 iter = 1;
 
 while diff > t0
-    % need to make sure t isnt out of index
-    % t is being weird?
-
     fprintf("Running Iteration %d\n", iter);
 
-    % need to keep t as an int and clamp it between [1, 255]
+    % need to cast t as an int and clamp it between [1, 255]
     t = int32(round(t));
     t = max(1, min(t, length(grayLevelCounts) - 1));
 
@@ -44,13 +41,13 @@ while diff > t0
     g2_total = sum(g2_list);
     g2 = sum(grayLevels(1:t) .* g2_list)/g2_total;
 
-    fprintf('g1: %d\n', round(g1));
-    fprintf('g2: %d\n', round(g2));
+    %fprintf('g1: %d\n', round(g1));
+    %fprintf('g2: %d\n', round(g2));
 
     % calculate new threshold value
     t_new = (g1 + g2)/2;
-    fprintf('t_new: %d\n', round(t_new));
-    fprintf('t: %d\n', round(t));
+    %fprintf('t_new: %d\n', round(t_new));
+    %fprintf('t: %d\n', round(t));
 
     diff = abs(t_new - t);
     t = t_new;

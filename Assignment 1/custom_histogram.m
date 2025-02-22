@@ -3,14 +3,16 @@ function [outputArg1, min_output, max_output, output_img] = custom_histogram(inp
 %   Detailed explanation goes here
 
 % grayscale the image if necessary
-grayscale = rgb2gray(inputIMG);
+if size(inputIMG, 3) == 3
+    grayscale = rgb2gray(inputIMG);
+else
+    grayscale = inputIMG;
+end
+
 colormap(gray)
 
 % grab the size of the image
 [height, width] = size(grayscale);
-
-% apparently using histcounts() with bins is much better though need to ask 
-% Allali how much he wants us to implement ourselves
 
 % lets use this instead since i want an array of counts of each graylevel, 
 % where the index is the respective gray level, so if gLC[5] = 10, that
