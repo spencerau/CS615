@@ -1,0 +1,26 @@
+---
+title: "Assignment 1"
+subtitle: "CS 615 - Digital Image Processing"
+author: "Spencer Au"
+format: pdf
+fontsize: 12pt
+geometry: margin=1in
+---
+
+## **Part A:** Histogram
+
+![](assets/partA_histogram.jpg){width="500"}
+
+## **Part B:** Image Thresholding
+
+![](assets/partB_threshold.jpg)
+
+## **Part C:** Full Scale Contrast Stretching
+
+![](assets/partC_contrast.jpg)
+
+## **Part D:** Fading of Images
+
+![](assets/partD_fade.jpg)
+
+Running the actual program will generate a "video" that shows the fading effect. I simply showed it as a montage of the intermediate images for simplicity.
