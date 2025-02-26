@@ -46,4 +46,3 @@ max_output = max;
 output_img = grayscale;
 
 end
-

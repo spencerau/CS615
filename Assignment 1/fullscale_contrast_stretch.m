@@ -1,15 +1,12 @@
 img = imread('assets/spot.jpg');
 
-clc
-
 subplot(2, 2, 1), imagesc(img)
 subplot(2, 2, 2), histogram(img)
 
 % A is the global minimum gray level
 A = min(min(img));
 % B is the global maximum gray level
-%B = max(max(img));
-% 20 might be better since theres like one or two occurences of 255, etc
+% 25 might be better since theres like one or two occurences of 255, etc
 B = 25;
 
 % K is the maximum number of gray levels; since the image is 8 bit, that
