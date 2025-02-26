@@ -2,9 +2,6 @@ function image_threshold(inputImage)
 
 [grayLevelCounts, minGray, maxGray, image] = custom_histogram(inputImage);
 
-%fprintf('Min: %d\n', minGray);
-%fprintf('Max: %d\n', maxGray);
-
 % get the midpoint of the min and max graylevel
 midpoint = (minGray + maxGray)/2;
 fprintf('Midpoint: %d\n', midpoint);
@@ -16,8 +13,6 @@ t = midpoint;
 
 diff = 999;
 grayLevels = 0:255;
-%[height, width] = size(image);
-
 iter = 1;
 
 while diff > t0
@@ -41,13 +36,8 @@ while diff > t0
     g2_total = sum(g2_list);
     g2 = sum(grayLevels(1:t) .* g2_list)/g2_total;
 
-    %fprintf('g1: %d\n', round(g1));
-    %fprintf('g2: %d\n', round(g2));
-
     % calculate new threshold value
     t_new = (g1 + g2)/2;
-    %fprintf('t_new: %d\n', round(t_new));
-    %fprintf('t: %d\n', round(t));
 
     diff = abs(t_new - t);
     t = t_new;
